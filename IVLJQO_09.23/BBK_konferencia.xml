@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<konferencia>
+    <cim>VörösMathy ut Mihály 6</cim>
+    <hallgatok>
+        <hallgato id="1">
+            <nev>Lakatos "Csapó" Csabi</nev>
+            <lakcim>1456 Duranda Megye u. 17.</lakcim>
+        </hallgato>
+        <hallgato id="2">
+            <nev>Molnár Kiki</nev>
+            <lakcim>1221 Felvilágosodás u. 21.</lakcim>
+        </hallgato>
+        <hallgato id="3">
+            <nev>Réz István</nev>
+            <lakcim>1776 Vasudvar u. 1.</lakcim>
+        </hallgato>
+    </hallgatok>
+    <helyszin>Brickleberry Nemzeti park</helyszin>
+    <eloado>
+        <nev>Judy Bonzon</nev>
+        <adoszam>010100011</adoszam>
+        <lakcim>123 Brickleberry út.</lakcim>
+    </eloado>
+    <datum>2022.11.07.</datum>
+</konferencia>
