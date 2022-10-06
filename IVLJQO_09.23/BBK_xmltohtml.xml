@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="sablon/KG_orarend_keszitette.xsl"?>
+<orarend>
+	<ora id="ora_1" tipus="mernoki-bsc">
+		<targy>Adatkezeles XML-ben</targy>
+		<idopont>
+			<nap>Péntek</nap>
+			<datum>2022.09.23</datum>
+			<tol>12.30</tol>
+			<ig>15.50</ig>
+		</idopont>
+		<helyszin>In/101 </helyszin>
+		<oktato> Dr. Bednarik László</oktato>
+		<szak>mernokinfo-webt</szak>
+	</ora>
+
+	<ora id="ora_2" tipus="mernoki-bsc">
+        <targy>Adatkezeles XML-ben</targy>
+        <idopont>
+            <nap>Péntek</nap>
+			<datum>2022.10.07</datum>
+            <tol>12:30</tol>
+            <ig>15:50</ig>
+        </idopont>
+        <helyszin>In/101</helyszin>
+        <oktato>Dr. Bednarik Laszlo</oktato>
+        <szak>Mernok informatikus</szak>
+    </ora>
+
+    <ora id="ora_3" tipus="mernoki-bsc">
+        <targy>Adatkezeles XML-ben</targy>
+        <idopont>
+            <nap>Péntek</nap>
+			<datum>2022.10.21</datum>
+            <tol>12:30</tol>
+            <ig>15:50</ig>
+        </idopont>
+        <helyszin>In/101</helyszin>
+        <oktato>Dr. Bednarik Laszlo</oktato>
+        <szak>Mernok informatikus</szak>
+    </ora>
+
+    <ora id="ora_4" tipus="mernoki-bsc">
+        <targy>Adatkezeles XML-ben</targy>
+        <idopont>
+            <nap>Péntek</nap>
+			<datum>2022.11.18</datum>
+            <tol>12:30</tol>
+            <ig>15:50</ig>
+        </idopont>
+        <helyszin>In/101</helyszin>
+        <oktato>Dr. Bednarik Laszlo</oktato>
+        <szak>Mernok informatikus</szak>
+    </ora>
+    <keszitette>Butella Bence Kristóf - IVLJQO </keszitette>
+
+</orarend>
