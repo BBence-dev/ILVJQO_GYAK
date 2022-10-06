@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <?xml-stylesheet type="text/xsl" href="sablon/BBK_orarend.xsl"?>
 <orarend>
-	<ora id="oid_1" tipus="mernoki-bsc">
+	<ora id="ora_1" tipus="mernoki-bsc">
 		<targy>Adatkezeles XML-ben</targy>
 		<idopont>
 			<nap>Péntek</nap>
