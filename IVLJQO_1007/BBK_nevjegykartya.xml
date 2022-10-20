@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="BBK_nevjegykartya.xsd" type="application/xml" schematypens="http://www.w3.org/2001/XMLSchema"?>
+
+<nevjegykartyak>
+    <nevjegykartya id="nevjegykartya_1">
+        <nev>Tim Alen</nev>
+        <ceg>
+            <cim>
+                <iranyitoszam>3980</iranyitoszam>
+                <varos>Sátoraljaújhely</varos>
+                <utca>V.István u.</utca>
+                <hazszam>4</hazszam>
+            </cim>
+            <nev>Valami Kft.</nev>
+            <telefonszam korzet="46">6663598</telefonszam>
+            <weblap>http://valami.hu</weblap>
+        </ceg>
+        <beosztas>CEO</beosztas>
+        <telefonszam korzet="47">3338429</telefonszam>
+        <email>tim.alan@valami.hu</email>
+    </nevjegykartya>
+</nevjegykartyak>
