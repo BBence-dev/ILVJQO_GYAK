@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<etterem>
+	<rendeles etteremid="" rendelesid=""></rendeles>
+	<vevo id=''>
+		<nev></nev>
+		<fizetes>
+			<keszpenz></keszpenz>
+			<kartya></kartya>
+		</fiezetes>
+		<telefonszam></telefonszam>
+		<lakcim id=''>
+			<varos></varos>
+			<iranyitoszam></iranyitoszam>
+			<utca></utca>
+			<hazszam></hazszam>
+		</lakcim>
+	</vevo>
+	<rendelesadatok rendelesid="">
+		<datum>
+		<tol></tol>
+		<ig></ig>
+		</>datum>
+	</rendelesadatok>
+	<etterem etteremid="">
+		<nev></nev>
+		<telefonszam></telefonszam>
+		<weblap></weblap>
+	</etterem>
+	<etlapid="">
+		<nev></nev>
+		<darab></darab>
+		<osszeg></osszeg
+	</etlap>
+</etterem>

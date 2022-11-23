@@ -1,0 +1,62 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+ <xs:element name="etterem">
+  <xs:complexType>
+      <xs:sequence>
+        <xs:element name="etlap">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="osszeg" type="xs:string" />
+              <xs:element name="nev" type="xs:string" />
+              <xs:element name="darab" type="xs:string" />
+            </xs:sequence>
+          </xs:complexType>
+	  <xs:element name="etterem">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Telefonszam" type="xs:string" />
+              <xs:element name="nev" type="xs:string" />
+              <xs:element name="weblap" type="xs:string" />
+            </xs:sequence>
+          </xs:complexType>
+  	  <xs:element name="rendeles adatok">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="datum" type="xs:string" />
+              <xs:element name="erkezes">
+ 		<xs:sequence>
+              	 <xs:element name="ig" type="xs:string" />
+                 <xs:element name="tol" type="xs:string">
+            	</xs:sequence>
+            </xs:sequence>
+          </xs:complexType>
+	  <xs:element name="etterem">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Telefonszam" type="xs:string" />
+              <xs:element name="nev" type="xs:string" />
+              <xs:element name="weblap" type="xs:string" />
+           </xs:sequence>
+	   <xs:element name="vevo">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Telefonszam" type="xs:string" />
+              <xs:element name="nev" type="xs:string" />
+              <xs:element name="fizetes"/>
+		<xs:sequence>
+              	 <xs:element name="kartya" type="xs:string" />
+                 <xs:element name="keszpenz" type="xs:string">
+            	</xs:sequence>
+		   <xs:element name="lakcim">
+          	    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="varos" type="xs:string" />
+                        <xs:element name="utca" type="xs:string" />
+                        <xs:element name="hazszam" type="xs:string" />
+                      </xs:sequence>
+                     </xs:complexType>
+                    </xs:sequence>
+	
+  </xs:complexType>
+ </xs:element>
+</xs:schema>
