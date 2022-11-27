@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema targetNamespace="ivljqo" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="etterem">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="rendeles">
+          <xs:complexType>
+            <xs:attribute name="etteremid" type="xs:string" use="required" />
+            <xs:attribute name="rendelesid" type="xs:string" use="required" />
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="vevo">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="nev" />
+              <xs:element name="fizetes">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="keszpenz" />
+                    <xs:element name="kartya" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="telefonszam" />
+              <xs:element name="lakcim">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="varos" />
+                    <xs:element name="iranyitoszam" />
+                    <xs:element name="utca" />
+                    <xs:element name="hazszam" />
+                  </xs:sequence>
+                  <xs:attribute name="id" type="xs:string" use="required" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="id" type="xs:string" use="required" />
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="rendelesadatok">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="datum">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="tol" />
+                    <xs:element name="ig" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="rendelesid" type="xs:string" use="required" />
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="etterem">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="nev" />
+              <xs:element name="telefonszam" />
+              <xs:element name="weblap" />
+            </xs:sequence>
+            <xs:attribute name="etteremid" type="xs:string" use="required" />
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="etlap">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="nev" />
+              <xs:element name="darab" />
+              <xs:element name="osszeg" />
+            </xs:sequence>
+            <xs:attribute name="id" type="xs:string" use="required" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

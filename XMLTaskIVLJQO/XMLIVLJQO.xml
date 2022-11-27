@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<etterem xmlns="ivljqo" xsi:schemaLocation="ivljqo schema.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <rendeles etteremid="string" rendelesid="string" />
+  <etterem etteremid="1">
+    <nev>Jó étterem</nev>
+    <telefonszam>06704569873</telefonszam>
+    <weblap>www.joetterem</weblap>
+  </etterem>
+  <vevo id="1">
+    <nev>Bence</nev>
+    <fizetes>
+      <keszpenz>0</keszpenz>
+      <kartya>10000</kartya>
+    </fizetes>
+    <telefonszam>06703333456</telefonszam>
+    <lakcim id="1">
+      <varos>Sátor</varos>
+      <iranyitoszam>3970</iranyitoszam>
+      <utca>Paloc</utca>
+      <hazszam>2</hazszam>
+    </lakcim>
+  </vevo>
+  <vevo id="2">
+    <nev>Zsófi</nev>
+    <fizetes>
+      <keszpenz>500</keszpenz>
+      <kartya>0</kartya>
+    </fizetes>
+    <telefonszam>06706343353</telefonszam>
+    <lakcim id="2">
+      <varos>Sátor</varos>
+      <iranyitoszam>3970</iranyitoszam>
+      <utca>Lolka</utca>
+      <hazszam>4</hazszam>
+    </lakcim>
+  </vevo>
+  <rendelesadatok rendelesid="1">
+    <datum>
+      <tol>2022.06.08.18:40</tol>
+      <ig>2022.06.08.19:30</ig>
+    </datum>
+  </rendelesadatok>
+  <rendelesadatok rendelesid="3">
+    <datum>
+      <tol>2022.06.08.18:40</tol>
+      <ig>2022.06.08.19:30</ig>
+    </datum>
+  </rendelesadatok>
+  <etlap id="1">
+    <nev>Pizza</nev>
+    <darab>5</darab>
+    <osszeg>10000</osszeg>
+  </etlap>
+ <etlap id="2">
+    <nev>Hamburger</nev>
+    <darab>1</darab>
+    <osszeg>500</osszeg>
+  </etlap>
+</etterem>
