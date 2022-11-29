@@ -1,37 +1,37 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?><!-- verziószám és a karakter kódolás tipusa-->
 <etterem xmlns="ivljqo" xsi:schemaLocation="ivljqo schema.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <rendeles etteremid="string" rendelesid="string" />
-  <etterem etteremid="1">
-    <nev>Egyszer étterem</nev>
+  <etterem etteremid="1"> <!--étterem szülö elem-->
+    <nev>Egyszer étterem</nev><!--név gyerek elem-->
     <telefonszam>06704564653</telefonszam>
     <weblap>www.egyszeretterem.com</weblap>
   </etterem>
-  <etterem etteremid="2">
-    <nev>Jó étterem</nev>
-    <telefonszam>06704569873</telefonszam>
-    <weblap>www.joetterem.com</weblap>
+  <etterem etteremid="2"><!--étterem szülö elem-->
+    <nev>Jó étterem</nev><!--név gyerek elem-->
+    <telefonszam>06704569873</telefonszam><!--telefonszám gyerek elem-->
+    <weblap>www.joetterem.com</weblap><!--weblap gyerek elem-->
   </etterem>
-  <etterem etteremid="3">
-    <nev>Volt étterem</nev>
-    <telefonszam>06704659873</telefonszam>
-    <weblap>www.voltetterem.com</weblap>
+  <etterem etteremid="3"><!--étterem szülö elem-->
+    <nev>Volt étterem</nev><!--név gyerek elem-->
+    <telefonszam>06704659873</telefonszam><!--telefonszám gyerek elem-->
+    <weblap>www.voltetterem.com</weblap><!--weblap gyerek elem-->
   </etterem>
-  <vevo id="1">
-    <nev>Bence</nev>
-    <fizetes>
-      <keszpenz>10000</keszpenz>
-      <kartya>0</kartya>
+  <vevo id="1"><!--vevo szülö elem-->
+    <nev>Bence</nev><!--név gyerek elem-->
+    <fizetes><!--fizetes szülö elem-->
+      <keszpenz>10000</keszpenz><!--kp gyerek elem-->
+      <kartya>0</kartya><!--kártya gyerek elem-->
     </fizetes>
     <telefonszam>06703333456</telefonszam>
-    <lakcim id="1">
-      <varos>Sátor</varos>
-      <iranyitoszam>3970</iranyitoszam>
-      <utca>Paloc</utca>
-      <hazszam>2</hazszam>
+    <lakcim id="1"><!--lakcím szülö elem-->
+      <varos>Sátor</varos><!--város gyerek elem-->
+      <iranyitoszam>3970</iranyitoszam><!--irányitoszám gyerek elem-->
+      <utca>Paloc</utca><!--utca gyerek elem-->
+      <hazszam>2</hazszam><!--házszám gyerek elem-->
     </lakcim>
   </vevo>
   <vevo id="2">
-    <nev>Zsófi</nev>
+    <nev>Zsófi</nev><!--név gyerek elem-->
     <fizetes>
       <keszpenz>500</keszpenz>
       <kartya>0</kartya>
@@ -45,7 +45,7 @@
     </lakcim>
   </vevo>
   <vevo id="3">
-    <nev>Sándor</nev>
+    <nev>Sándor</nev><!--név gyerek elem-->
     <fizetes>
       <keszpenz>1500</keszpenz>
       <kartya>0</kartya>
@@ -76,10 +76,10 @@
       <ig>2022.06.08.19:30</ig>
     </datum>
   </rendelesadatok>
-  <etlap id="1">
-    <nev>Pizza</nev>
-    <darab>5</darab>
-    <osszeg>10000</osszeg>
+  <etlap id="1"><!--etlap szülö elem-->
+    <nev>Pizza</nev><!--név gyerek elem-->
+    <darab>5</darab><!--darab gyerek elem-->
+    <osszeg>10000</osszeg><!--összeg gyerek elem-->
   </etlap>
  <etlap id="2">
     <nev>Hamburger</nev>
