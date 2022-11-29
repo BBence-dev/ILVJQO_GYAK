@@ -41,7 +41,7 @@ public class DomQueryIVLJQO {
          
          System.out.println("Adjon meg egy id számot");
          szam = beolvas.nextInt();
-         //Vevö Lekérdezés
+         //Egy Vevö Lekérdezés
          String expression = "/etterem/vevo[@id = "+szam+"]";
          NodeList nodeList = (NodeList) xPath.compile(expression).evaluate(
             doc, XPathConstants.NODESET);
@@ -49,7 +49,7 @@ public class DomQueryIVLJQO {
          for (int i = 0; i < nodeList.getLength(); i++) {
             Node nNode = nodeList.item(i);
             System.out.println("\nJelenlegi Element :" + nNode.getNodeName());
-            
+            //Vevö adatainka kíiratása
             if (nNode.getNodeType() == Node.ELEMENT_NODE) {
                Element eElement = (Element) nNode;
                System.out.println("Vevö id : " 
@@ -96,7 +96,7 @@ public class DomQueryIVLJQO {
                        .getTextContent());
             }
          }
-         //Étterem lekérdezés
+         //Egy Étterem lekérdezés
          String expression2 = "/etterem/etterem[@etteremid = "+szam+"]";
          NodeList nodeList2 = (NodeList) xPath.compile(expression2).evaluate(
             doc, XPathConstants.NODESET);
@@ -104,7 +104,7 @@ public class DomQueryIVLJQO {
          for (int i = 0; i < nodeList2.getLength(); i++) {
             Node nNode2 = nodeList2.item(i);
             System.out.println("\nJelenlegi Element :" + nNode2.getNodeName());
-            
+          //Éttrem adatainka kíiratása
             if (nNode2.getNodeType() == Node.ELEMENT_NODE) {
                Element eElement = (Element) nNode2;
                System.out.println("Etterem id : " 
@@ -126,6 +126,24 @@ public class DomQueryIVLJQO {
                        .getTextContent());
             }
          }
+        //Készpénzek összegzése
+         NodeList nlVevo = doc.getElementsByTagName("vevo");
+        int osszeg=0;
+         for (int i = 0; i < nlVevo.getLength(); i++) {
+        	 
+        	 int t[] = new int[nlVevo.getLength()];
+				Node n1 = nlVevo.item(i);
+				
+				if(n1.getNodeType() == Node.ELEMENT_NODE) {
+					Element el1 = (Element) n1;
+					
+					System.out.println("\n"+(i+1) + ". vevö készpénz: " + el1.getElementsByTagName("keszpenz").item(0).getTextContent());
+					t[i]=Integer.parseInt(el1.getElementsByTagName("keszpenz").item(0).getTextContent());
+					
+				}osszeg=osszeg+t[i];
+					
+			}
+			System.out.println("\nKifizette készpénz Összeg: "+osszeg);
       } catch (ParserConfigurationException e) {
          e.printStackTrace();
       } catch (SAXException e) {
