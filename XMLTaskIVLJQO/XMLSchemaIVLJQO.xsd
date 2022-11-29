@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema targetNamespace="ivljqo" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:element name="etterem">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element name="rendeles">
-          <xs:complexType>
-            <xs:attribute name="etteremid" type="xs:string" use="required" />
+<xs:schema targetNamespace="ivljqo" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema"><!--gyökér elem-->
+  <xs:element name="etterem"><!--elem meghatározása -->
+    <xs:complexType><!--Komplex tipus-->
+      <xs:sequence><!-- ezzel állitjuk sorrendbe az elemeket-->
+        <xs:element name="rendeles"><!--szülö elem-->
+          <xs:complexType><!--Komplex tipus-->
+            <xs:attribute name="etteremid" type="xs:string" use="required" /><!--Gyerek elem-->
             <xs:attribute name="rendelesid" type="xs:string" use="required" />
           </xs:complexType>
         </xs:element>
-        <xs:element name="vevo">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="nev" />
+        <xs:element name="vevo"><!--szülö elem-->
+          <xs:complexType><!--Komplex tipus-->
+            <xs:sequence><!-- ezzel állitjuk sorrendbe az elemeket-->
+              <xs:element name="nev" /><!--Gyerek elem-->
               <xs:element name="fizetes">
                 <xs:complexType>
                   <xs:sequence>
@@ -30,7 +30,7 @@
                     <xs:element name="utca" />
                     <xs:element name="hazszam" />
                   </xs:sequence>
-                  <xs:attribute name="id" type="xs:string" use="required" />
+                  <xs:attribute name="id" type="xs:string" use="required" /><!--Attributumok id tipusa string, mindig meg kell adni az id értékét-->
                 </xs:complexType>
               </xs:element>
             </xs:sequence>
