@@ -26,20 +26,22 @@ public class DomQueryIVLJQO {
 	   Scanner beolvas = new Scanner(System.in);
 	   
       try {
-         File inputFile = new File("XMLIVLJQO.xml");
-         DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+    	//fájl helyének megadása
+         File xml = new File("XMLIVLJQO.xml");
+         //Dokumentum fa felépítése
+         DocumentBuilderFactory dbF = DocumentBuilderFactory.newInstance();
          DocumentBuilder dBuilder;
 
-         dBuilder = dbFactory.newDocumentBuilder();
-
-         Document doc = dBuilder.parse(inputFile);
+         dBuilder = dbF.newDocumentBuilder();
+         //xml beolvasás
+         Document doc = dBuilder.parse(xml);
          doc.getDocumentElement().normalize();
-
+         //Utvonal
          XPath xPath =  XPathFactory.newInstance().newXPath();
          
-         System.out.println("Adjon meg egy id sz�mot");
+         System.out.println("Adjon meg egy id számot");
          szam = beolvas.nextInt();
-         
+         //Vevö Lekérdezés
          String expression = "/etterem/vevo[@id = "+szam+"]";
          NodeList nodeList = (NodeList) xPath.compile(expression).evaluate(
             doc, XPathConstants.NODESET);
@@ -50,7 +52,7 @@ public class DomQueryIVLJQO {
             
             if (nNode.getNodeType() == Node.ELEMENT_NODE) {
                Element eElement = (Element) nNode;
-               System.out.println("Vev� id : " 
+               System.out.println("Vevö id : " 
                   + eElement.getAttribute("id"));
                System.out.println("nev : " 
                   + eElement
@@ -67,12 +69,12 @@ public class DomQueryIVLJQO {
                   .getElementsByTagName("kartya")
                   .item(0)
                   .getTextContent());
-               System.out.println("telefonsz�m : " 
+               System.out.println("telefonszám : " 
                        + eElement
                        .getElementsByTagName("telefonszam")
                        .item(0)
                        .getTextContent());
-               System.out.println("ir�nyit�sz�m : " 
+               System.out.println("irányitószám : " 
                        + eElement
                        .getElementsByTagName("iranyitoszam")
                        .item(0)
@@ -87,9 +89,39 @@ public class DomQueryIVLJQO {
                        .getElementsByTagName("utca")
                        .item(0)
                        .getTextContent());
-               System.out.println("h�zszam : " 
+               System.out.println("házszam : " 
                        + eElement
                        .getElementsByTagName("hazszam")
+                       .item(0)
+                       .getTextContent());
+            }
+         }
+         //Étterem lekérdezés
+         String expression2 = "/etterem/etterem[@etteremid = "+szam+"]";
+         NodeList nodeList2 = (NodeList) xPath.compile(expression2).evaluate(
+            doc, XPathConstants.NODESET);
+         
+         for (int i = 0; i < nodeList2.getLength(); i++) {
+            Node nNode2 = nodeList2.item(i);
+            System.out.println("\nJelenlegi Element :" + nNode2.getNodeName());
+            
+            if (nNode2.getNodeType() == Node.ELEMENT_NODE) {
+               Element eElement = (Element) nNode2;
+               System.out.println("Etterem id : " 
+                  + eElement.getAttribute("etteremid"));
+               System.out.println("nev : " 
+                  + eElement
+                  .getElementsByTagName("nev")
+                  .item(0)
+                  .getTextContent());
+               System.out.println("telefonszám : " 
+                       + eElement
+                       .getElementsByTagName("telefonszam")
+                       .item(0)
+                       .getTextContent());
+               System.out.println("Weblap : " 
+                       + eElement
+                       .getElementsByTagName("weblap")
                        .item(0)
                        .getTextContent());
             }
