@@ -19,8 +19,8 @@
   <vevo id="1">
     <nev>Bence</nev>
     <fizetes>
-      <keszpenz>0</keszpenz>
-      <kartya>10000</kartya>
+      <keszpenz>10000</keszpenz>
+      <kartya>0</kartya>
     </fizetes>
     <telefonszam>06703333456</telefonszam>
     <lakcim id="1">
