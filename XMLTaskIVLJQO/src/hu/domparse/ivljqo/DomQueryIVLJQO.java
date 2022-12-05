@@ -22,37 +22,35 @@ public class DomQueryIVLJQO {
 
    public static void main(String[] args) {
 	   
-	   int szam;
-	   Scanner beolvas = new Scanner(System.in);
 	   
       try {
-    	//fÃ¡jl helyÃ©nek megadÃ¡sa
+    	//fájl helyének megadása
          File xml = new File("XMLIVLJQO.xml");
-         //Dokumentum fa felÃ©pÃ­tÃ©se
+         //Dokumentum fa felépítése
          DocumentBuilderFactory dbF = DocumentBuilderFactory.newInstance();
          DocumentBuilder dBuilder;
 
          dBuilder = dbF.newDocumentBuilder();
-         //xml beolvasÃ¡s
+         //xml beolvasás
          Document doc = dBuilder.parse(xml);
          doc.getDocumentElement().normalize();
          //Utvonal
          XPath xPath =  XPathFactory.newInstance().newXPath();
          
-         System.out.println("Adjon meg egy id szÃ¡mot");
-         szam = beolvas.nextInt();
-         //Egy VevÃ¶ LekÃ©rdezÃ©s
-         String expression = "/etterem/vevo[@id = "+szam+"]";
+         //Egy Vevö Lekérdezés
+         System.out.println("---------------------------------------------------------");
+         System.out.println("1.Lekérdezés: Lekérjük azt a vevöt akinek az 1 id-t adtuk");
+         String expression = "/adatok/vevok/vevo[@id = '1']";
          NodeList nodeList = (NodeList) xPath.compile(expression).evaluate(
             doc, XPathConstants.NODESET);
          
          for (int i = 0; i < nodeList.getLength(); i++) {
             Node nNode = nodeList.item(i);
             System.out.println("\nJelenlegi Element :" + nNode.getNodeName());
-            //VevÃ¶ adatainka kÃ­iratÃ¡sa
+            //Vevö adatainka kíiratása
             if (nNode.getNodeType() == Node.ELEMENT_NODE) {
                Element eElement = (Element) nNode;
-               System.out.println("VevÃ¶ id : " 
+               System.out.println("Vevö id : " 
                   + eElement.getAttribute("id"));
                System.out.println("nev : " 
                   + eElement
@@ -69,42 +67,24 @@ public class DomQueryIVLJQO {
                   .getElementsByTagName("kartya")
                   .item(0)
                   .getTextContent());
-               System.out.println("telefonszÃ¡m : " 
+               System.out.println("telefonszám : " 
                        + eElement
                        .getElementsByTagName("telefonszam")
                        .item(0)
                        .getTextContent());
-               System.out.println("irÃ¡nyitÃ³szÃ¡m : " 
-                       + eElement
-                       .getElementsByTagName("iranyitoszam")
-                       .item(0)
-                       .getTextContent());
-               System.out.println("varos : " 
-                  + eElement
-                  .getElementsByTagName("varos")
-                  .item(0)
-                  .getTextContent());
-               System.out.println("utca : " 
-                       + eElement
-                       .getElementsByTagName("utca")
-                       .item(0)
-                       .getTextContent());
-               System.out.println("hÃ¡zszam : " 
-                       + eElement
-                       .getElementsByTagName("hazszam")
-                       .item(0)
-                       .getTextContent());
             }
          }
-         //Egy Ã‰tterem lekÃ©rdezÃ©s
-         String expression2 = "/etterem/etterem[@etteremid = "+szam+"]";
+         System.out.println("---------------------------------------------------------");
+         System.out.println("2.Lekérdezés: Lekérjük az étterem összes adatát");
+         //Étterem összes elemének kiiratása
+         String expression2 = "/adatok/ettermek/etterem";
          NodeList nodeList2 = (NodeList) xPath.compile(expression2).evaluate(
             doc, XPathConstants.NODESET);
          
          for (int i = 0; i < nodeList2.getLength(); i++) {
             Node nNode2 = nodeList2.item(i);
             System.out.println("\nJelenlegi Element :" + nNode2.getNodeName());
-          //Ã‰ttrem adatainka kÃ­iratÃ¡sa
+          //Éttrem adatainka kíiratása
             if (nNode2.getNodeType() == Node.ELEMENT_NODE) {
                Element eElement = (Element) nNode2;
                System.out.println("Etterem id : " 
@@ -114,7 +94,7 @@ public class DomQueryIVLJQO {
                   .getElementsByTagName("nev")
                   .item(0)
                   .getTextContent());
-               System.out.println("telefonszÃ¡m : " 
+               System.out.println("telefonszám : " 
                        + eElement
                        .getElementsByTagName("telefonszam")
                        .item(0)
@@ -126,24 +106,69 @@ public class DomQueryIVLJQO {
                        .getTextContent());
             }
          }
-        //KÃ©szpÃ©nzek Ã¶sszegzÃ©se
+        
+         System.out.println("---------------------------------------------------------");
+         System.out.println("3.Lekérdezés: Megnézük hogy mennyi volt a bevétel");
          NodeList nlVevo = doc.getElementsByTagName("vevo");
-        int osszeg=0;
+         //Kifizettet készpénzek összege
+          int osszeg=0;
          for (int i = 0; i < nlVevo.getLength(); i++) {
-        	 
-        	 int t[] = new int[nlVevo.getLength()];
+        	  int t[] = new int[nlVevo.getLength()];
 				Node n1 = nlVevo.item(i);
 				
 				if(n1.getNodeType() == Node.ELEMENT_NODE) {
 					Element el1 = (Element) n1;
 					
-					System.out.println("\n"+(i+1) + ". vevÃ¶ kÃ©szpÃ©nz: " + el1.getElementsByTagName("keszpenz").item(0).getTextContent());
+					System.out.println("\n"+(i+1) + ". vevö készpénz: " + el1.getElementsByTagName("keszpenz").item(0).getTextContent());
 					t[i]=Integer.parseInt(el1.getElementsByTagName("keszpenz").item(0).getTextContent());
 					
 				}osszeg=osszeg+t[i];
-					
-			}
-			System.out.println("\nKifizette kÃ©szpÃ©nz Ã–sszeg: "+osszeg);
+				
+			}  
+         
+         System.out.println("\nKifizette készpénz Összeg: "+osszeg);
+         
+         System.out.println("---------------------------------------------------------");
+         System.out.println("4.Lekérdezés: Meg nézzük mennyi volt az átlaga a bevételnek");
+       //Készpénz átlaga
+        float atl;
+        int osszeg2=0;
+         for (int i = 0; i < nlVevo.getLength(); i++) {
+    	        	 
+    	        	 int t[] = new int[nlVevo.getLength()];
+    					Node n1 = nlVevo.item(i);
+    					
+    					if(n1.getNodeType() == Node.ELEMENT_NODE) {
+    						Element el1 = (Element) n1;
+    						t[i]=Integer.parseInt(el1.getElementsByTagName("keszpenz").item(0).getTextContent());
+    					}osszeg2=osszeg2+t[i];
+    					
+    				}
+             		atl=osszeg/nlVevo.getLength();
+             		
+            
+         		System.out.println("\nKifizette készpénz Átlaga: "+atl);
+         		System.out.println("---------------------------------------------------------");
+                System.out.println("5.Lekérdezés: Meg keressük a legnyobb értéket");
+         //Legnagyobb Készpénz
+         		int max=0;
+             		 for (int i = 0; i < nlVevo.getLength(); i++) {
+        	        	 
+        	        	 int t[] = new int[nlVevo.getLength()];
+        					Node n1 = nlVevo.item(i);
+        					
+        					if(n1.getNodeType() == Node.ELEMENT_NODE) {
+        						Element el1 = (Element) n1;
+        						t[i]=Integer.parseInt(el1.getElementsByTagName("keszpenz").item(0).getTextContent());
+        					}
+        					
+        					if(max<t[i]) {
+        						max=t[i];
+        					}
+        				}
+               
+			System.out.println("\nKifizette készpénz Max: "+max);
+			
       } catch (ParserConfigurationException e) {
          e.printStackTrace();
       } catch (SAXException e) {

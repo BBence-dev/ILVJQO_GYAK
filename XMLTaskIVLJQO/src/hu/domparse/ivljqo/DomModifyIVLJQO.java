@@ -23,7 +23,7 @@ public class DomModifyIVLJQO {
 	public static void main(String[] args) {
 		
 		try {
-			//f√°jl hely√©nek megad√°sa
+			//f·jl helyÈnek megad·sa
 			String path = "XMLIVLJQO.xml";
 			File xmlFile = new File (path);
 			//
@@ -34,16 +34,17 @@ public class DomModifyIVLJQO {
             Document doc = db.parse(xmlFile);
             doc.getDocumentElement().normalize();
 
-            // M√≥dos√≠t√°s
+            // MÛdosÌt·s
             updateElement(doc);
 
-            // T√∂rl√©s
+            // TˆrlÈs
             deleteElement(doc);
 
-            // Element hozz√°ad√°sa
+            // Element hozz·ad·sa
             addElement(doc);
+            addElement2(doc);
 
-            // M√≥dos√≠tott f√°jl l√©trehoz√°sa
+            // MÛdosÌtott f·jl lÈtrehoz·sa
             writeFile(doc);
 
         } catch (Exception e){
@@ -60,10 +61,10 @@ public class DomModifyIVLJQO {
         StreamResult result = new StreamResult(new File("Updated_XMLIVLJQO.xml"));
         transformer.setOutputProperty(OutputKeys.INDENT, "yes");
         transformer.transform(ds, result);
-        System.out.println("XML m√≥dos√≠tva");
+        System.out.println("XML mÛdosÌtva");
     }
 
-     //√∫j elem hozz√°ad√°sa az √©tteremhez
+     //˙j elem hozz·ad·sa az Ètteremhez
     private static void addElement(Document doc) {
     	NodeList etterem1 = doc.getElementsByTagName("etterem");
         Element etterem = null;
@@ -76,8 +77,21 @@ public class DomModifyIVLJQO {
             etterem.appendChild(id);
         }
     }
+    
+    private static void addElement2(Document doc) {
+    	NodeList vevo = doc.getElementsByTagName("vevo");
+        Element vevoad = null;
+        
+        //minden darabra
+        for (int i = 0; i < vevo.getLength(); i++) {
+           vevoad = (Element) vevo.item(i); 
+            Element id = doc.createElement("kor");
+            id.appendChild(doc.createTextNode("22"));
+            vevoad.appendChild(id);
+        }
+    }
 
-    //Egy elem t√∂rl√©se
+    //Egy elem tˆrlÈse
     private static void deleteElement(Document doc) {
     	NodeList etterem = doc.getElementsByTagName("fizetes");
         Element fizetes = null;
@@ -90,7 +104,7 @@ public class DomModifyIVLJQO {
     }
     
     
-  //Egy √ºgyf√©l nev√©nek megv√°ltoztat√°sa (els≈ë elem haszn√°lat√°val)
+  //Egy ¸gyfÈl nevÈnek megv·ltoztat·sa (elsı elem haszn·lat·val)
     private static void updateElement(Document doc) {
         NodeList etterem = doc.getElementsByTagName("vevo");
         Element vevo = null;
@@ -98,9 +112,9 @@ public class DomModifyIVLJQO {
         for (int i = 0; i < etterem.getLength(); i++) {
             vevo = (Element) etterem.item(i);
             Node nev = vevo.getElementsByTagName("nev").item(0).getFirstChild();
-            //megfelel≈ë √ºgyf√©l megkeres√©se √©s adat megv√°ltoztat√°sa
+            //megfelelı ¸gyfÈl megkeresÈse Ès adat megv·ltoztat·sa
             if (vevo.getAttribute("id").contentEquals("1")) {
-            	nev.setNodeValue("√Åd√°m");
+            	nev.setNodeValue("¡d·m");
             }
             
         }
