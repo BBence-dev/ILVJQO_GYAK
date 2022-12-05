@@ -1,138 +1,321 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
-<etterem xmlns="ivljqo" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="ivljqo schema.xsd">
-      
-    <rendeles etteremid="string" rendelesid="string"/>
+<adatok xmlns="ivljqo" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="ivljqo XMLSchemaIVLJQO.xsd">
     
-    <etterem etteremid="0">
-            
-        <nev>Egyszer étterem</nev>
-            
-        <telefonszam>06704564653</telefonszam>
-            
-        <weblap>www.egyszeretterem</weblap>
-          
-        <kapacitas>500</kapacitas>
-    </etterem>
-      
-    <etterem etteremid="1">
-            
-        <nev>Jó étterem</nev>
-            
-        <telefonszam>06704569873</telefonszam>
-            
-        <weblap>www.joetterem</weblap>
-          
-        <kapacitas>500</kapacitas>
-    </etterem>
-      
-    <etterem etteremid="2">
-            
-        <nev>Volt étterem</nev>
-            
-        <telefonszam>06704659873</telefonszam>
-            
-        <weblap>www.voltetterem</weblap>
-          
-        <kapacitas>500</kapacitas>
-    </etterem>
-      
-    <vevo id="1">
-            
+    <ettermek>
+        	
+        <etterem id="1">
+                		
+            <nev>Egyszer étterem</nev>
+                		
+            <telefonszam>06704564653</telefonszam>
+                		
+            <weblap>www.egyszeretterem.com</weblap>
+            	
+            <rendelesadatok>
+                		
+                <rendeles idref="1"/>
+                	
+            </rendelesadatok>
+             
+	
+            <kapacitas>500</kapacitas>
+        </etterem>
+        		 
+	
+        <etterem id="2">
+                		
+            <nev>Jó étterem</nev>
+                		
+            <telefonszam>06704569873</telefonszam>
+               		
+            <weblap>www.joetterem.com</weblap>
+            	
+            <rendelesadatok>
+                		
+                <rendeles idref="2"/>
+                	
+            </rendelesadatok>
+             	
+            <kapacitas>500</kapacitas>
+        </etterem>
+        	
+        <etterem id="3">
+                		
+            <nev>Volt étterem</nev>
+                		
+            <telefonszam>06704659873</telefonszam>
+                		
+            <weblap>www.voltetterem.com</weblap>
+            	
+            <rendelesadatok>
+                		
+                <rendeles idref="3"/>
+                	
+            </rendelesadatok>
+              	
+            <kapacitas>500</kapacitas>
+        </etterem>
+        	
+ 
+    </ettermek>
     
-        <fizetes>
-                  
-            <keszpenz>0</keszpenz>
-                  
-            <kartya>10000</kartya>
-                
-        </fizetes>
-            
-        <telefonszam>06703333456</telefonszam>
-            
+    <vevok>
+         		
+        <vevo id="1">
+                			
+            <nev>Ádám</nev>
+                		
+            <fizetes>
+                      			
+                <keszpenz>10000</keszpenz>
+                      			
+    		
+            </fizetes>
+                		
+            <telefonszam>06703333456</telefonszam>
+                		
+            <lakcimek>
+                			
+                <lakcim idref="1"/>
+                		
+            </lakcimek>
+            		
+            <rendelesadatok>
+                			
+                <rendeles idref="1"/>
+                		
+            </rendelesadatok>
+             
+  		
+            <kor>22</kor>
+        </vevo>
+          		
+        <vevo id="2">
+                			
+            <nev>Zsófi</nev>
+                		
+            <fizetes>
+                      			
+                <keszpenz>500</keszpenz>
+                      			
+    		
+            </fizetes>
+                			
+            <telefonszam>06706343353</telefonszam>
+                		
+            <lakcimek>
+                			
+                <lakcim idref="2"/>
+                		
+            </lakcimek>
+            		
+            <rendelesadatok>
+                			
+                <rendeles idref="2"/>
+                		
+            </rendelesadatok>
+              		
+            <kor>22</kor>
+        </vevo>
+          		
+        <vevo id="3">
+                			
+            <nev>Sándor</nev>
+                		
+            <fizetes>
+                      			
+                <keszpenz>1500</keszpenz>
+                      			
+    		
+            </fizetes>
+                			
+            <telefonszam>06706343353</telefonszam>
+                		
+            <lakcimek>
+                			
+                <lakcim idref="3"/>
+                		
+            </lakcimek>
+            		
+            <rendelesadatok>
+                			
+                <rendeles idref="3"/>
+                		
+            </rendelesadatok>
+              		
+            <kor>22</kor>
+        </vevo>
+        
+    </vevok>
+    
+    <lakcimek>
+        	
         <lakcim id="1">
-                  
+                  		
             <varos>Sátor</varos>
-                  
+                  		
             <iranyitoszam>3970</iranyitoszam>
-                  
+                  		
             <utca>Paloc</utca>
-                  
+                  		
             <hazszam>2</hazszam>
-                
+                	
         </lakcim>
-          
-    </vevo>
-      
-    <vevo id="2">
-            
-    
-        <fizetes>
-                  
-            <keszpenz>500</keszpenz>
-                  
-            <kartya>0</kartya>
-                
-        </fizetes>
-            
-        <telefonszam>06706343353</telefonszam>
-            
+        	
         <lakcim id="2">
-                  
+                  		
             <varos>Sátor</varos>
-                  
+                  		
             <iranyitoszam>3970</iranyitoszam>
-                  
+                  		
             <utca>Lolka</utca>
-                  
+                  		
             <hazszam>4</hazszam>
-                
+                	
         </lakcim>
-          
-    </vevo>
-      
-    <rendelesadatok rendelesid="1">
-            
-        <datum>
-                  
-            <tol>2022.06.08.18:40</tol>
-                  
-            <ig>2022.06.08.19:30</ig>
-                
-        </datum>
-          
+        	
+        <lakcim id="3">
+                  		
+            <varos>Sátor</varos>
+                  		
+            <iranyitoszam>3970</iranyitoszam>
+                  		
+            <utca>Lolka</utca>
+                  		
+            <hazszam>4</hazszam>
+                	
+        </lakcim>
+         
+    </lakcimek>
+    	
+
+ 
+    <rendelesadatok>
+         
+
+	
+        <rendeles id="1">
+                		
+            <erkezes>
+                      			
+                <tol>2022.06.08.18:40</tol>
+                      			
+                <ig>2022.06.08.19:30</ig>
+                    		
+            </erkezes>
+            	
+            <datum>2022.06.08.18:00</datum>
+            	
+            <ettermek>
+                		
+                <etterem idref="1">
+                    <kapacitas>500</kapacitas>
+                </etterem>
+                	
+            </ettermek>
+            	
+        </rendeles>
+        	
+  	
+        <rendeles id="2">
+                		
+            <erkezes>
+                      			
+                <tol>2022.07.09.18:40</tol>
+                      			
+                <ig>2022.07.09.19:30</ig>
+                    		
+            </erkezes>
+            	
+            <datum>2022.07.09.18:00</datum>
+            	
+            <ettermek>
+                		
+                <etterem idref="2">
+                    <kapacitas>500</kapacitas>
+                </etterem>
+                	
+            </ettermek>
+              	
+        </rendeles>
+          	
+        <rendeles id="3">
+                		
+            <erkezes>
+                      			
+                <tol>2022.06.09.18:40</tol>
+                      			
+                <ig>2022.06.09.19:30</ig>
+                    		
+            </erkezes>
+            	
+            <datum>2022.06.09.18:00</datum>
+            	
+            <ettermek>
+                		
+                <etterem idref="3">
+                    <kapacitas>500</kapacitas>
+                </etterem>
+                	
+            </ettermek>
+              	
+        </rendeles>
+         
     </rendelesadatok>
-      
-    <rendelesadatok rendelesid="3">
-            
-        <datum>
-                  
-            <tol>2022.06.08.18:40</tol>
-                  
-            <ig>2022.06.08.19:30</ig>
-                
-        </datum>
-          
-    </rendelesadatok>
-      
-    <etlap id="1">
-            
-        <nev>Pizza</nev>
-            
-        <darab>5</darab>
-            
-        <osszeg>10000</osszeg>
-          
-    </etlap>
-     
-    <etlap id="2">
-            
-        <nev>Hamburger</nev>
-            
-        <darab>1</darab>
-            
-        <osszeg>500</osszeg>
-          
-    </etlap>
     
-    <kapacitas>500</kapacitas>
-</etterem>
+    <etlapok>
+          		
+        <etlap id="1">
+                			
+            <nev>Pizza</nev>
+                			
+            <darab>5</darab>
+                			
+            <osszeg>10000</osszeg>
+            		
+            <rendelesadatok>
+                			
+                <rendeles idref="1"/>
+                		
+            </rendelesadatok>
+             
+  		
+        </etlap>
+         		
+        <etlap id="2">
+                			
+            <nev>Hamburger</nev>
+                			
+            <darab>1</darab>
+                			
+            <osszeg>500</osszeg>
+            		
+            <rendelesadatok>
+                			
+                <rendeles idref="2"/>
+                		
+            </rendelesadatok>
+             
+  		
+        </etlap>
+          		
+        <etlap id="3">
+                			
+            <nev>Gyros</nev>
+                			
+            <darab>1</darab>
+                			
+            <osszeg>1500</osszeg>
+            		
+            <rendelesadatok>
+                			
+                <rendeles idref="3"/>
+                		
+            </rendelesadatok>
+             
+  		
+        </etlap>
+        
+    </etlapok>
+    
+</adatok>

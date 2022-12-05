@@ -1,78 +1,147 @@
-<?xml version="1.0" encoding="utf-8"?>
-<xs:schema targetNamespace="ivljqo" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema"><!--gyökér elem-->
-  <xs:element name="etterem"><!--elem meghatározása -->
-    <xs:complexType><!--Komplex tipus-->
-      <xs:sequence><!-- ezzel állitjuk sorrendbe az elemeket-->
-        <xs:element name="rendeles"><!--szülö elem-->
-          <xs:complexType><!--Komplex tipus-->
-            <xs:attribute name="etteremid" type="xs:string" use="required" /><!--Gyerek elem-->
-            <xs:attribute name="rendelesid" type="xs:string" use="required" />
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="vevo"><!--szülö elem-->
-          <xs:complexType><!--Komplex tipus-->
-            <xs:sequence><!-- ezzel állitjuk sorrendbe az elemeket-->
-              <xs:element name="nev" /><!--Gyerek elem-->
-              <xs:element name="fizetes">
-                <xs:complexType>
-                  <xs:sequence>
-                    <xs:element name="keszpenz" />
-                    <xs:element name="kartya" />
-                  </xs:sequence>
-                </xs:complexType>
-              </xs:element>
-              <xs:element name="telefonszam" />
-              <xs:element name="lakcim">
-                <xs:complexType>
-                  <xs:sequence>
-                    <xs:element name="varos" />
-                    <xs:element name="iranyitoszam" />
-                    <xs:element name="utca" />
-                    <xs:element name="hazszam" />
-                  </xs:sequence>
-                  <xs:attribute name="id" type="xs:string" use="required" /><!--Attributumok id tipusa string, mindig meg kell adni az id értékét-->
-                </xs:complexType>
-              </xs:element>
-            </xs:sequence>
-            <xs:attribute name="id" type="xs:string" use="required" />
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="rendelesadatok">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="datum">
-                <xs:complexType>
-                  <xs:sequence>
-                    <xs:element name="tol" />
-                    <xs:element name="ig" />
-                  </xs:sequence>
-                </xs:complexType>
-              </xs:element>
-            </xs:sequence>
-            <xs:attribute name="rendelesid" type="xs:string" use="required" />
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="etterem">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="nev" />
-              <xs:element name="telefonszam" />
-              <xs:element name="weblap" />
-            </xs:sequence>
-            <xs:attribute name="etteremid" type="xs:string" use="required" />
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="etlap">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="nev" />
-              <xs:element name="darab" />
-              <xs:element name="osszeg" />
-            </xs:sequence>
-            <xs:attribute name="id" type="xs:string" use="required" />
-          </xs:complexType>
-        </xs:element>
+<?xml version="1.1" encoding="UTF-8"?>
+<xs:schema targetNamespace="ivljqo" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="lakcimTipus">
+    <xs:sequence>
+      <xs:element type="xs:string" name="varos"/>
+      <xs:element type="xs:string" name="iranyitoszam"/>
+      <xs:element type="xs:string" name="utca"/>
+      <xs:element type="xs:string" name="hazszam"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="lakcimekTipus">
+    <xs:sequence>
+      <xs:element type="lakcimTipus" name="lakcim" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="vevo" mixed="true">
+    <xs:sequence>
+      <xs:element name="nev" />
+      <xs:element name="telefonszam" />
+      <xs:element type="fizetesTipus" name="fizetes" />
+      <xs:element type="lakcimekTipus" name="lakcim" />
+      <xs:element type="rendelesadatokTipus" name="rendeles" />
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="idref" />
+    <xs:attribute type="xs:string" name="id" />
+  </xs:complexType>
+
+  <xs:complexType name="vevokTipus">
+    <xs:sequence>
+      <xs:element type="vevotipus" name="vevo" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="rendelesadatokTipus">
+    <xs:sequence>
+      <xs:element type="erkezesTipus" name="erkezes"/>
+      <xs:element type="xs:string" name="datum"/>
+      <xs:element type="etteremekTipus" name="etterem"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="id"/>
+    <xs:attribute type="xs:string" name="idref" />
+  </xs:complexType>
+
+  <xs:complexType name="rendelesadatokTipus">
+    <xs:sequence>
+      <xs:element type="rendelesTipus" name="rendeles"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="etteremTipus" mixed="true">
+    <xs:sequence>
+      <xs:element type="xs:string" name="nev"/>
+      <xs:element type="fizetesTipus" name="fizetes"/>
+      <xs:element type="xs:string" name="telefonszam"/>
+      <xs:element type="lakcimekTipus" name="lakcim"/>
+      <xs:element type="rendelesadatokTipus" name="rendeles"/>
+      <xs:element type="xs:string" name="weblap"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="idref" />
+    <xs:attribute type="xs:string" name="id" />
+  </xs:complexType>
+
+  <xs:complexType name="ettermekTipus">
+    <xs:sequence>
+      <xs:element type="etteremTipus" name="etterem" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="etlapTipus">
+    <xs:sequence>
+      <xs:element name="nev" />
+      <xs:element name="darab" />
+      <xs:element name="osszeg" />
+      <xs:element type="rendelesadtakTipus" name="date" />
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="idref" />
+    <xs:attribute type="xs:string" name="id" />
+  </xs:complexType>
+
+  <xs:complexType name="etlapokType">
+    <xs:sequence>
+      <xs:element type="etlapTipus" name="etlap" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="erkezesTipus">
+    <xs:sequence>
+      <xs:element name="tol" />
+      <xs:element name="ig" />
+    </xs:sequence>
+  </xs:complexType>
+
+<xs:complexType name="fizetesTipus">
+    <xs:sequence>
+      <xs:element name="keszpenz" />
+      <xs:element name="kartya" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="adatok">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element type="lakcimekTipus" name="lakcimek"/>
+        <xs:element type="vevokTipus" name="vevok"/>
+        <xs:element type="rendelesadatokTipus" name="rendeles"/>
+        <xs:element type="ettermekTipus" name="ettermek"/>
+        <xs:element type="etlapokTipus" name="etlapok"/>
       </xs:sequence>
     </xs:complexType>
+
+    <xs:key name="lakcimId">
+      <xs:selector xpath="./lakcimek/lakcim"/>
+      <xs:field xpath="@id" />
+    </xs:key>
+    <xs:key name="vevoId">
+      <xs:selector xpath="./vevok/vevo"/>
+      <xs:field xpath="@id" />
+    </xs:key>
+    <xs:key name="rendelesID">
+      <xs:selector xpath="./rendelesadatok/rendeles"/>
+      <xs:field xpath="@id" />
+    </xs:key>
+    <xs:key name="etteremID">
+      <xs:selector xpath="./ettermek/etterem"/>
+      <xs:field xpath="@id" />
+    </xs:key>
+    <xs:key name="etlapID">
+      <xs:selector xpath="./etlapok/etlap"/>
+      <xs:field xpath="@id" />
+    </xs:key>
+
+    <xs:keyref name="rendelesRef" refer="rendelesId">
+      <xs:selector xpath="./ettermek/etterem/rendelesadatok/rendeles"/>
+      <xs:field xpath="@idref" />
+    </xs:keyref>
+    <xs:keyref name="lakcimRef" refer="lakcimId">
+      <xs:selector xpath="./vevok/vevo/lakcimek/lakcim"/>
+      <xs:field xpath="@idref" />
+    </xs:keyref>
+    <xs:keyref name="ettermekRef" refer="etteremID">
+      <xs:selector xpath="./rendelesadatok/rendeles/ettermek/etterem"/>
+      <xs:field xpath="@idref" />
+    </xs:keyref>
   </xs:element>
 </xs:schema>
