@@ -62,7 +62,7 @@ public class DomReadIVLJQO {
 					
 				}
 			}
-			
+			// lakcimek kiíratása
 			for (int i = 0; i < nlLakcim.getLength(); i++) {
 				Node n5 = nlLakcim.item(i);
 				
