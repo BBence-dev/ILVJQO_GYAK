@@ -23,20 +23,20 @@ public class DomReadIVLJQO {
 		
 	
 		try {
-			//f·jl helyÈnek megad·sa
+			//f√°jl hely√©nek megad√°sa
 			File xml = new File("XMLIVLJQO.xml");
 			//
 			DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 	
-			//Dokumentum fa felÈpÌtÈse
+			//Dokumentum fa fel√©p√≠t√©se
 			DocumentBuilder db = dbf.newDocumentBuilder();
-			//xml beolvas·s
+			//xml beolvas√°s
 			Document doc = db.parse(xml);
 	
 			XPath xPath =  XPathFactory.newInstance().newXPath();
 			
-			//Minden adat kiÌr·sa
-			//ˆsszeszedi az elemeket a f·bÛl
+			//Minden adat ki√≠r√°sa
+			//√∂sszeszedi az elemeket a f√°b√≥l
 			
 			String etterem = "/adatok/ettermek/etterem";
 			NodeList nlEtterem = (NodeList) xPath.compile(etterem).evaluate( doc, XPathConstants.NODESET);
@@ -56,9 +56,9 @@ public class DomReadIVLJQO {
 				if(n1.getNodeType() == Node.ELEMENT_NODE) {
 					Element el1 = (Element) n1;
 					
-					//vevˆ adatainak kiÌr·sa
-					System.out.println((i+1) + ". |Vevˆ neve: " + el1.getElementsByTagName("nev").item(0).getTextContent() + " |Kartya: " + el1.getElementsByTagName("kartya").item(0).getTextContent()
-							+ " |KÈszpÈnz: " + el1.getElementsByTagName("keszpenz").item(0).getTextContent()+ " |Telefonsz·ma: " + el1.getElementsByTagName("telefonszam").item(0).getTextContent());
+					//vev√∂ adatainak ki√≠r√°sa
+					System.out.println((i+1) + ". |Vev√∂ neve: " + el1.getElementsByTagName("nev").item(0).getTextContent() + " |Kartya: " + el1.getElementsByTagName("kartya").item(0).getTextContent()
+							+ " |K√©szp√©nz: " + el1.getElementsByTagName("keszpenz").item(0).getTextContent()+ " |Telefonsz√°ma: " + el1.getElementsByTagName("telefonszam").item(0).getTextContent());
 					
 				}
 			}
@@ -69,49 +69,51 @@ public class DomReadIVLJQO {
 				if(n5.getNodeType() == Node.ELEMENT_NODE) {
 					Element el5 = (Element) n5;
 					
-					//vevˆ adatainak kiÌr·sa
-					System.out.println((i+1) + ". |Vevˆ lakcime: " + " |Irsz: " +el5.getElementsByTagName("iranyitoszam").item(0).getTextContent()+ " |V·ros: " + el5.getElementsByTagName("varos").item(0).getTextContent()
-							+ " |Utca: "+ el5.getElementsByTagName("utca").item(0).getTextContent()+ " |H·zsz·m: "+ el5.getElementsByTagName("hazszam").item(0).getTextContent());
+					//vev√∂ adatainak ki√≠r√°sa
+					System.out.println((i+1) + ". |Vev√∂ lakcime: " + " |Irsz: " +el5.getElementsByTagName("iranyitoszam").item(0).getTextContent()+ " |V√°ros: " + el5.getElementsByTagName("varos").item(0).getTextContent()
+							+ " |Utca: "+ el5.getElementsByTagName("utca").item(0).getTextContent()+ " |H√°zsz√°m: "+ el5.getElementsByTagName("hazszam").item(0).getTextContent());
 					
 				}
 			}
 			
-			//Ètterem adatainak kiÌr·sa
+			//√©tterem adatainak ki√≠r√°sa
 			for (int j = 0; j < nlEtterem.getLength(); j++) {
 				Node n2 = nlEtterem.item(j);
 				
 				if(n2.getNodeType() == Node.ELEMENT_NODE) {
 					Element el2 = (Element) n2;
-					System.out.println((j+1) + ". |…tterem neve: " + el2.getElementsByTagName("nev").item(0).getTextContent()+ " |Weblap: " + el2.getElementsByTagName("weblap").item(0).getTextContent()+ 
+					System.out.println((j+1) + ". |√âtterem neve: " + el2.getElementsByTagName("nev").item(0).getTextContent()+ " |Weblap: " + el2.getElementsByTagName("weblap").item(0).getTextContent()+ 
 							" |Telefonszam: " + el2.getElementsByTagName("telefonszam").item(0).getTextContent());
 				}
 			}
+			//rendel√©s adatainak ki√≠rat√°sa
 			for (int i = 0; i < nlrendelesa.getLength(); i++) {
 				Node n3 = nlrendelesa.item(i);
 				
 				if(n3.getNodeType() == Node.ELEMENT_NODE) {
 					Element el3 = (Element) n3;
 					
-					//rendelÈs adatainak kiÌr·sa
-					System.out.println((i+1) + ". |RendelÈs tÛl: " + el3.getElementsByTagName("tol").item(0).getTextContent()+ ". |RendelÈs ig: " + el3.getElementsByTagName("ig").item(0).getTextContent());
+					//rendel√©s adatainak ki√≠r√°sa
+					System.out.println((i+1) + ". |Rendel√©s t√≥l: " + el3.getElementsByTagName("tol").item(0).getTextContent()+ ". |Rendel√©s ig: " + el3.getElementsByTagName("ig").item(0).getTextContent());
 					
 				}
 			}
+			//√©tlap adatainak ki√≠rat√°sa
 			for (int i = 0; i < nlEtlap.getLength(); i++) {
 				Node n4 = nlEtlap.item(i);
 				
 				if(n4.getNodeType() == Node.ELEMENT_NODE) {
 					Element el4 = (Element) n4;
 					
-					//rendelÈs adatainak kiÌr·sa
-					System.out.println((i+1) + ". |…tel nÈv: " + el4.getElementsByTagName("nev").item(0).getTextContent()+ ". |…tel darab sz·ma: " + el4.getElementsByTagName("darab").item(0).getTextContent()
-					 + ". |÷sszeg: " + el4.getElementsByTagName("osszeg").item(0).getTextContent());
+					//rendel√©s adatainak ki√≠r√°sa
+					System.out.println((i+1) + ". |√âtel n√©v: " + el4.getElementsByTagName("nev").item(0).getTextContent()+ ". |√âtel darab sz√°ma: " + el4.getElementsByTagName("darab").item(0).getTextContent()
+					 + ". |√ñsszeg: " + el4.getElementsByTagName("osszeg").item(0).getTextContent());
 					
 				}
 			}
-			//kivÈtelkezelÈs
+			//kiv√©telkezel√©s
 		} catch (Exception e) {
-			System.out.println("Hiba tˆrtÈnt: " +e.getMessage());
+			System.out.println("Hiba t√∂rt√©nt: " +e.getMessage());
 		}
 	}
 }
