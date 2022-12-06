@@ -1,18 +1,25 @@
+<!—Verzioszám karkarkter kódólás -->
 <?xml version="1.0" encoding="utf-8"?>
+<!--Gyökér elem-->
 <adatok xmlns="ivljqo" 
 xsi:schemaLocation="ivljqo XMLSchemaIVLJQO.xsd" 
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-
+<!--gyerek elem-->
 <ettermek>
+<!—gyerek elem id tulajdonsággal ez az elsödleges kulcs-->
 	<etterem id="1">
+		<!—nev gyerek elem -->
     		<nev>Egyszer étterem</nev>
+		<!—telefonszám gyerek elem -->
     		<telefonszam>06704564653</telefonszam>
+		<!—weblap gyerek elem -->
     		<weblap>www.egyszeretterem.com</weblap>
 	<rendelesadatok>
+		<!—gyerek elem egy másik gyerek elemre való hivatkozásra-->
 		<rendeles idref="1"/>
 	</rendelesadatok> 
 	</etterem>
-		 
+		 <!—a második gyerek elem ugyan azokkal a gyerek elemekkel ellátva ebböl összesen 3 van mindegyikböl -->
 	<etterem id="2">
     		<nev>Jó étterem</nev>
     		<telefonszam>06704569873</telefonszam>
@@ -32,23 +39,31 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   	</etterem>
 	
  </ettermek>
+<!—vevök gyerek elem -->
 <vevok>
-
+		<!—gyerek elem id tulajdonsággal ez az elsödleges kulcs-->
  		<vevo id="1">
+			<!—nev gyerek elem -->
     			<nev>Bence</nev>
+			<!—többértékű gyerek elem ami tartalmaz 2 másik gyerek elemet-->
     		<fizetes>
+			<!—készpénz gyerek elem -->
       			<keszpenz>10000</keszpenz>
+			<!—kártya gyerek elem -->
       			<kartya>0</kartya>
     		</fizetes>
-    		<telefonszam>06703333456</telefonszam>
+    		<!—telefonszám gyerek elem -->
+		<telefonszam>06703333456</telefonszam>
+		<!—lakcímek gyerek elem hivakozással a lakcímek gyerek elemrea-->
     		<lakcimek>
 			<lakcim idref="1"/>
 		</lakcimek>
+		<!—gyerek elem egy másik gyerek elemre való hivatkozásra-->
 		<rendelesadatok>
 			<rendeles idref="1"/>
 		</rendelesadatok> 
   		</vevo>
-
+		<!—ebböl is van még 2 ehez hasonló gyerek elem-->
   		<vevo id="2">
     			<nev>Zsófi</nev>
     		<fizetes>
@@ -79,16 +94,21 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 		</rendelesadatok>
   		</vevo>
 </vevok>
+<!—lakcimek gyerek elem -->
 
 <lakcimek>
-
+	<!—lakcim gyerek elem elsödleges kulcsal ellátva -->
 	<lakcim id="1">
+		<!—város gyerek elem -->
       		<varos>Sátor</varos>
+		<!—irányitószám gyerek elem -->
       		<iranyitoszam>3970</iranyitoszam>
+		<!—utca gyerek elem -->
       		<utca>Paloc</utca>
+		<!—házszám gyerek elem -->
       		<hazszam>2</hazszam>
     	</lakcim>
-
+		<!—a lakcimekböl is készitettem 3elemt hogy legyen minden vevőnek legyen egyedi lakcime -->
 	<lakcim id="2">
       		<varos>Sátor</varos>
       		<iranyitoszam>3970</iranyitoszam>
@@ -104,20 +124,26 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     	</lakcim>
 
  </lakcimek>	
-
+ <!—rendelesadatok gyerek elem -->
  <rendelesadatok> 
-
-	<rendeles id="1">
+		<!—rendeles gyerek elem -->
+		<rendeles id="1">
+			<!—érkezés gyerek elem -->
     		<erkezes>
+			<!—tól-ig gyerek elemek -->
       			<tol>2022.06.08.18:40</tol>
       			<ig>2022.06.08.19:30</ig>
     		</erkezes>
+		<!—dátu, gyerek elem -->
 	<datum>2022.06.08.18:00</datum>
+	<!—étterem gyerek elem -->
 	<ettermek>
+		<!—étterem gyerek elem az étterem re való hitvatkozással -->
 		<etterem idref="1"/>
 	</ettermek>
 	</rendeles>
-	
+	<!—a rendelésekböl is készitettem 3elemt hogy legyen minden vevőnek legyen egyedi rendelése -->
+
   	<rendeles id="2">
     		<erkezes>
       			<tol>2022.07.09.18:40</tol>
@@ -140,16 +166,22 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	</ettermek>
   	</rendeles>
  </rendelesadatok>
-
+<!—étlapok gyerek elem -->
 <etlapok>
+		<!—étlap gyerek elem elsödleges kulcsal ellátva-->
   		<etlap id="1">
+			<!—név gyerek elem -->
     			<nev>Pizza</nev>
+			<!—darab gyerek elem -->
     			<darab>5</darab>
+			<!—összeg gyerek elem -->
     			<osszeg>10000</osszeg>
+		<!—gyerek elem egy másik gyerek elemre való hivatkozásra—a rendelés adatokra>
 		<rendelesadatok>
 			<rendeles idref="1"/>
 		</rendelesadatok> 
   		</etlap>
+		<!—az étlapokból is készitettem 3elemt hogy legyen minden vevőnek legyen egyedi rendelése -->
 
  		<etlap id="2">
     			<nev>Hamburger</nev>
@@ -170,3 +202,4 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   		</etlap>
 </etlapok>
 </adatok>
+

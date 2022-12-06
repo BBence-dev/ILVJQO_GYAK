@@ -1,38 +1,50 @@
+<!—verzió szam karakterkódolás-->
 <?xml version="1.1" encoding="UTF-8"?>
 <xs:schema targetNamespace="ivljqo" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:complexType name="lakcimTipus">
+  <!—öszetett tipus elem ami a lakcimTipus névre halgat-->
+<xs:complexType name="lakcimTipus">
+<!—a gyerekelemeket a szekvencia tagek között kell megadni -->
+<!—nyitótag-->
     <xs:sequence>
+<!—gyerek elemek-->
       <xs:element type="xs:string" name="varos"/>
       <xs:element type="xs:string" name="iranyitoszam"/>
       <xs:element type="xs:string" name="utca"/>
       <xs:element type="xs:string" name="hazszam"/>
+<!—zárotag-->
     </xs:sequence>
+<!—zárotag-->
   </xs:complexType>
-
+  <!—öszetett tipus elem ami a lakcimTipus névre halgat nyitó tag-->
   <xs:complexType name="lakcimekTipus">
     <xs:sequence>
+<!—meghatározzuk hányszor fordulhat elö egy elem-->
       <xs:element type="lakcimTipus" name="lakcim" maxOccurs="unbounded" minOccurs="0"/>
+<!—zárotagek-->
     </xs:sequence>
   </xs:complexType>
-
+<!—komlex tipus ami több fajta tipus is felvehet egyben nyitó tag-->
   <xs:complexType name="vevo" mixed="true">
     <xs:sequence>
       <xs:element name="nev" />
       <xs:element name="telefonszam" />
+<!—hivatkozási elem a saját tipusunkra-->
       <xs:element type="fizetesTipus" name="fizetes" />
       <xs:element type="lakcimekTipus" name="lakcim" />
       <xs:element type="rendelesadatokTipus" name="rendeles" />
     </xs:sequence>
+<!—idegen kulcsokra való hivatkozás-->
     <xs:attribute type="xs:string" name="idref" />
     <xs:attribute type="xs:string" name="id" />
   </xs:complexType>
-
+  <!—öszetett tipus elem ami a vevokTipus névre halgat-->
   <xs:complexType name="vevokTipus">
     <xs:sequence>
+<!—meghatározzuk hogy hányszor fordulhat elő egy vevő tipus
       <xs:element type="vevotipus" name="vevo" maxOccurs="unbounded" />
     </xs:sequence>
   </xs:complexType>
-
+  <!—öszetett tipus elem ami a rendelesadatokTipus névre halgat-->
   <xs:complexType name="rendelesadatokTipus">
     <xs:sequence>
       <xs:element type="erkezesTipus" name="erkezes"/>
@@ -42,15 +54,17 @@
     <xs:attribute type="xs:string" name="id"/>
     <xs:attribute type="xs:string" name="idref" />
   </xs:complexType>
-
+<!—öszetett tipus elem ami a rendelesadatokTipus névre halgat-->
   <xs:complexType name="rendelesadatokTipus">
     <xs:sequence>
       <xs:element type="rendelesTipus" name="rendeles"/>
     </xs:sequence>
   </xs:complexType>
-
+<!—öszetett tipus elem ami a etteremTipus névre halgat-->
+<!—több fajta tipust is felvehet-->
   <xs:complexType name="etteremTipus" mixed="true">
     <xs:sequence>
+<!—elemek és elem hivtkozások-->
       <xs:element type="xs:string" name="nev"/>
       <xs:element type="fizetesTipus" name="fizetes"/>
       <xs:element type="xs:string" name="telefonszam"/>
@@ -61,24 +75,27 @@
     <xs:attribute type="xs:string" name="idref" />
     <xs:attribute type="xs:string" name="id" />
   </xs:complexType>
-
+<!—öszetett tipus elem ami a etteremTipus névre halgat-->
   <xs:complexType name="ettermekTipus">
     <xs:sequence>
+<!—meghatározzuk hogy hányszor fordulhat elő egy etterm tipus-->
       <xs:element type="etteremTipus" name="etterem" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-
+<!—öszetett tipus elem ami a etlapTipus névre halgat-->
   <xs:complexType name="etlapTipus">
     <xs:sequence>
+<!—elemek meg adása hivatkozás egy másik elemra-->
       <xs:element name="nev" />
       <xs:element name="darab" />
       <xs:element name="osszeg" />
       <xs:element type="rendelesadtakTipus" name="date" />
     </xs:sequence>
+<!—kulcsokra való hivatkozása-->
     <xs:attribute type="xs:string" name="idref" />
     <xs:attribute type="xs:string" name="id" />
   </xs:complexType>
-
+<!—öszetett tipus elem ami a etlapokTipus névre halgat-->
   <xs:complexType name="etlapokType">
     <xs:sequence>
       <xs:element type="etlapTipus" name="etlap" maxOccurs="unbounded" minOccurs="0"/>
@@ -98,8 +115,9 @@
       <xs:element name="kartya" />
     </xs:sequence>
   </xs:complexType>
-
+<!—adatok gyökér elem elemi egyedi tipusok
   <xs:element name="adatok">
+<!—komplex tipus benne a saját tipusok-->
     <xs:complexType>
       <xs:sequence>
         <xs:element type="lakcimekTipus" name="lakcimek"/>
@@ -109,26 +127,45 @@
         <xs:element type="etlapokTipus" name="etlapok"/>
       </xs:sequence>
     </xs:complexType>
-
+<!—a kulcs neve-->
     <xs:key name="lakcimId">
-      <xs:selector xpath="./lakcimek/lakcim"/>
+      <!—az elérési útvonal hogy honnan legyen az elsődleges kulcs-->
+       <xs:selector xpath="./lakcimek/lakcim"/>
+         <!—amiben tárolódik a kulcs attribútuma-->
       <xs:field xpath="@id" />
+        <!—zárotag-->
     </xs:key>
+	<!—a kulcs neve-->
     <xs:key name="vevoId">
+	<!—az elérési útvonal hogy honnan legyen az elsődleges kulcs-->
       <xs:selector xpath="./vevok/vevo"/>
+	<!—amiben tagolódik a kulcs attribútuma-->
       <xs:field xpath="@id" />
+	<!—zárotag-->
     </xs:key>
+	<!—a kulcs neve-->
     <xs:key name="rendelesID">
+	<!—az elérési útvonal hogy honnan legyen az elsődleges kulcs-->
       <xs:selector xpath="./rendelesadatok/rendeles"/>
+	<!—amiben tagolódik a kulcs attribútuma-->
       <xs:field xpath="@id" />
+	<!—zárotag-->
     </xs:key>
+	<!—a kulcs neve-->
     <xs:key name="etteremID">
+	<!—az elérési útvonal hogy honnan legyen az elsődleges kulcs-->
       <xs:selector xpath="./ettermek/etterem"/>
+	<!—amiben tagolódik a kulcs attribútuma-->
       <xs:field xpath="@id" />
+<!—zárotag-->
     </xs:key>
+	<!—a kulcs neve-->
     <xs:key name="etlapID">
+	<!—az elérési útvonal hogy honnan legyen az elsődleges kulcs-->
       <xs:selector xpath="./etlapok/etlap"/>
+	<!—amiben tagolódik a kulcs attribútuma-->
       <xs:field xpath="@id" />
+	<!—zárotag-->
     </xs:key>
 
     <xs:keyref name="rendelesRef" refer="rendelesId">
@@ -144,4 +181,4 @@
       <xs:field xpath="@idref" />
     </xs:keyref>
   </xs:element>
-</xs:schema>
+</xs:schema><!—schema zárotagje-->
